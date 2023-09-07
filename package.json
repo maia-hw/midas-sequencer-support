@@ -1,6 +1,6 @@
 {
-  "name": "msl",
-  "displayName": "msl",
+  "name": "midas-sequencer",
+  "displayName": "midas-sequencer",
   "description": "MIDAS Scripting Language (MSL) support",
   "version": "0.0.1",
   "engines": {
@@ -11,14 +11,14 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "msl",
-      "aliases": ["MSL", "msl"],
+      "id": "midas-sequencer",
+      "aliases": ["MSL", "msl", "midas-sequencer"],
       "extensions": [".msl"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "msl",
-      "scopeName": "source.msl",
+      "language": "midas-sequencer",
+      "scopeName": "source.midas-sequencer",
       "path": "./syntaxes/msl.tmLanguage.json"
     }]
   }

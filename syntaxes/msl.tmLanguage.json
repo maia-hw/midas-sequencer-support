@@ -1,9 +1,12 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "MSL",
+	"name": "midas-sequencer",
+	"scopeName": "source.midas-sequencer",
 	"patterns": [
 		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#commands"
 		},
 		{
 			"include": "#comments"
@@ -16,39 +19,58 @@
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.msl",
-					"match": "\\b(BREAK|IF|ELSE|ENDIF|LOOP|ENDLOOP|WAIT)\\b"
+					"name": "keyword.control.midas-sequencer",
+					"match": "\\b(BREAK|IF|ELSE|ENDIF|LOOP|ENDLOOP)\\b"
 				},
 				{
-					"name": "keyword.constant.msl",
-					"match": "\\b(PARAM|ODBSET|ODBGET|ODBCREATE)\\b"
+					"name": "keyword.constant.midas-sequencer",
+					"match": "\\b(PARAM|ODBSET|ODBGET|ODBCREATE|ODBDELETE|ODBINC|ODBLOAD|ODBSAVE|ODBSUBDIR|ENDODBSUBDIR|PARAM|RUNDESCRIPTION|SET|CAT|COMMENT|LIBRARY|MESSAGE|MSG)\\b"
+				}
+			]
+		},
+		"commands": {
+			"patterns": [
+				{
+					"match": "\\b(?:GOTO|WAIT|CALL|SCRIPT|SUBROUTINE|ENDSUBROUTINE|TRANSITION|INCLUDE)\\b",
+					"name": "keyword.control.midas-sequencer"
+				},
+				{
+					"match": "\\b(?:FLOAT|INT|DOUBLE|CHAR)\\b",
+					"name": "storage.type.midas-sequencer"
+				},
+				{
+					"match": "/[a-zA-Z/ ]+",
+					"name": "support.path.midas-sequencer"
+				},
+				{
+					"match": "\\$\\w+",
+					"name": "variable.other.midas-sequencer.access"
+				},
+				{
+					"match": "\\b\\w+\\b",
+					"name": "variable.other.midas-sequencer.declaration"
 				}
 			]
 		},
 		"comments": {
 			"patterns": [
 				{
-				"captures": {
-					"0": {
-						"name": "punctuation.definition.comment.msl"
-					}
-				},
-				"match": "#.*",
-				"name": "comment.line.number-sign.msl"
-			}
+					"begin": "#",
+					"end": "\n",
+					"name": "comment.line.number-sign.midas-sequencer"
+				}
 			]
 		},
 		"strings": {
-			"name": "string.quoted.double.msl",
+			"name": "string.quoted.double.midas-sequencer",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.msl",
+					"name": "constant.character.escape.midas-sequencer",
 					"match": "\\\\."
 				}
 			]
 		}
-	},
-	"scopeName": "source.msl"
+	}
 }
