@@ -1,0 +1,25 @@
+{
+  "name": "msl",
+  "displayName": "msl",
+  "description": "MIDAS Scripting Language (MSL) support",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "msl",
+      "aliases": ["MSL", "msl"],
+      "extensions": [".msl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "msl",
+      "scopeName": "source.msl",
+      "path": "./syntaxes/msl.tmLanguage.json"
+    }]
+  }
+}
