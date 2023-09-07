@@ -1,0 +1,55 @@
+#
+# I-V-Curve test with parameter specification at startup
+#
+
+PARAM start_voltage, "Starting voltage"
+PARAM stop_voltage, "Stop voltage"
+PARAM num_steps, "Number of steps"
+
+# Calculate step size
+num_steps = $num_steps + 1 # add one step for stop_voltage
+step_size = ($stop_voltage-$start_voltage) / ($num_steps-1)
+
+# Initialize measurement arrays at startup
+ODBCREATE /Equipment/Test/Variables/Voltage, FLOAT, $num_steps
+ODBCREATE /Equipment/Test/Variables/Current, FLOAT, $num_steps
+ODBCREATE /Equipment/Test/Variables/V, FLOAT
+
+# Erase any previously stored array
+ODBSET /Equipment/Test/Variables/Voltage[*], 0
+ODBSET /Equipment/Test/Variables/Current[*], 0
+
+v = $start_voltage
+ODBSET /Equipment/Test/Variables/V, $v
+
+current = 0
+
+# Turn on Keithley
+ODBSET /Equipment/KEITHLEY/Variables/Set State, 1
+# Wait to turn on
+WAIT SECONDS, 2
+
+# Looping starts at 1
+LOOP i, $num_steps
+    # Store voltage in array and in variable
+    ODBSET /Equipment/Test/Variables/Voltage[$i-1], $v
+    ODBSET /Equipment/Test/Variables/V, $v
+
+    # Set voltage and measure
+    ODBSET /Equipment/KEITHLEY/Variables/Demand Voltage, $v
+    # Wait for measurement to be stored in Current
+    WAIT SECONDS, 10
+    ODBGET /Equipment/KEITHLEY/Variables/Current, current
+    
+    # Outputting current to ODB array
+    ODBSET /Equipment/Test/Variables/Current[$i-1], $current
+
+    # increment voltage
+    v = $v + $step_size
+ENDLOOP
+
+# Turn off Keithley
+ODBSET /Equipment/KEITHLEY/Variables/Set State, 0
+
+# Wait to turn off
+WAIT SECONDS, 1

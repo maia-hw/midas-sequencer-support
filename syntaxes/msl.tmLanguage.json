@@ -6,15 +6,37 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#comments"
+		},
+		{
 			"include": "#strings"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.msl",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.msl",
+					"match": "\\b(BREAK|IF|ELSE|ENDIF|LOOP|ENDLOOP|WAIT)\\b"
+				},
+				{
+					"name": "keyword.constant.msl",
+					"match": "\\b(PARAM|ODBSET|ODBGET|ODBCREATE)\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+				"captures": {
+					"0": {
+						"name": "punctuation.definition.comment.msl"
+					}
+				},
+				"match": "#.*",
+				"name": "comment.line.number-sign.msl"
+			}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.msl",
