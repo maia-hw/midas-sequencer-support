@@ -43,6 +43,10 @@
 					"name": "support.path.midas-sequencer"
 				},
 				{
+					"match": "\\b[0-9]+\\b",
+					"name": "constant.numeric.midas-sequencer"
+				},
+				{
 					"match": "\\$\\w+",
 					"name": "variable.other.midas-sequencer.access"
 				},
