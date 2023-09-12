@@ -1,6 +1,6 @@
 # midas-sequencer
 
-This extension provides syntax highlighting support for the MIDAS Scripting Language (MSL)
+This extension provides syntax highlighting support for the MIDAS Scripting Language (MSL). It can be installed from the .vsix file.
 
 ## Features
 
