@@ -3,6 +3,7 @@
   "displayName": "midas-sequencer",
   "description": "MIDAS Scripting Language (MSL) support",
   "publisher": "maiahw",
+  "icon": "images/midas_logo.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.81.0"
@@ -24,8 +25,8 @@
         ],
         "configuration": "./language-configuration.json",
         "icon": {
-          "light": "./images/midas_logo.png",
-          "dark": "./images/midas_logo.png"
+          "light": "./images/midas_logo_crop.png",
+          "dark": "./images/midas_logo_crop.png"
         }
       }
     ],
