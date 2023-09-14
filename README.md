@@ -1,6 +1,7 @@
 # midas-sequencer
 
-This extension provides syntax highlighting support for the MIDAS Scripting Language (MSL). It can be installed from the .vsix file.
+This extension provides syntax highlighting support for the MIDAS Scripting Language (MSL). It can be installed from
+[midas-sequencer-0.0.1.vsix](https://github.com/maia-hw/midas-sequencer-support/blob/main/midas-sequencer-0.0.1.vsix) by selecting "Install from VSIX" in the "Views and More Actions" (the three-dots menu) in the Extensions tab of your Visual Studio Code editor.
 
 ## Features
 
